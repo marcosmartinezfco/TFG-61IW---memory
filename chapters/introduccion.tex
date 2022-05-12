@@ -1,0 +1,44 @@
+\chapter{Introduction}
+\label{ch:introduccion}
+
+\gls{ai} is one of the scientific areas that has gained the most popularity over the last decade~\cite{iagoogletrend}. While it is true that \gls{ai} is a relatively new theoretical field created in the mid-twentieth century~\footnote{The term "Artificial Intelligence" was first coined by John McCarthy in 1956~\cite{definitionIaMcCarthy}.}, it is only now that it has begun to offer real and accurate solutions beyond a purely research-focused framework, as a result of the exponential increase of the availability of colossal data sets as well as monstrous computing power. There is a huge variety of research sub-branches that underlay the field of \gls{ai}, that ranges from general applications such as \gls{ml}, \glspl{es} or \gls{nlp} algorithms, to more concrete applications such as the traditional Chinese board game, GO,~\footnote{Abstract strategy board game for two players in which the aim is to surround more territory than the opponent~\cite{goDefinition}.}.
+
+A more specific area of application of \gls{ai} are financial markets. These markets conform an exchange platform in which a group of sellers offer a certain number of tradable assets which can be purchased by another group of buyers. The prices of these tradable assets are determined by the market itself, i.e., a seller will receive what the market is willing to pay for an asset. This ambiguous singularity raises the first question, what influences the price of an asset? 
+
+Applying \gls{ai} techniques to financial markets is extremely interesting due to the strong correlation between statistics and the stock market. The history of the stock market in itself contains patterns that give clues for the future, only however, if those patterns are properly interpreted. Many theories and analytical tools such as the "Dow Theory" or the "Fundamental" and "Technical" analysis provide evidence on this regard~\cite{stockMarketPatterns}. In addition, computers are extremely efficient at recognizing and processing patterns embedded in the data fed to them, which makes financial markets an extremely interesting field to work in.
+
+Despite all of the above, the price of an asset cannot be predicted with complete accuracy using statistical analysis. There are several causalities that can affect the price of an asset since the market is strongly affected by emotions, for example, or other factors that are more slippery for statistics. Restrictive economic policies, corporate scandals, military conflicts and even \textit{tweets} from relevant personalities, are just a few other examples of punctual factors that can influence the development of the market.
+
+This thesis will primarily focus on the application of \gls{ai} in financial exchange markets through the use of \gls{dl} algorithms.
+
+\section{Motivation}
+
+Although \gls{ai} has become a buzzword due to its recent popularity, it has always been the main line of research that caught my attention when I started my degree. Since taking my first subject related to the topic, I knew I would do my thesis on this branch of computer science. The only obstacle to face was my openness to these ideas and the implicate wide ranging interests in order to channel my passion for this field into one of the possible areas of application on which I would focus given the enormous variety. 
+
+Over the last five years, cryptocurrencies have been taking on the public stage in a new gold rush causing bitcoin to skyrocket its \textit{Bitcoin-USD} rates from nothing to nearly USD 65000 on April 14, 2021. Moreover, phenomena such as the rise of \textit{Dogecoin}~\footnote{Cryptocurrency created as a joke, with a parodical intention to make fun of the wild speculation in cryptocurrencies~\cite{dogeDefinition}.} prices following a couple of tweets from Elon Musk awakened my interest for investments and exchange markets, thus making me wonder how hard it would be to predict the value of an asset given all the different variables needed to be taken into account when forecasting the development of the market and therefore its price.
+
+\section{Aim}
+
+Set up initial micro-services-based infrastructure capable of serving a NASDAQ stock price forecasting service, making use of recursive \gls{dl} algorithms. This will set the starting point for future work as explained on section \ref{fu:future}.
+
+\newpage
+\subsection{Specific aims}
+\begin{itemize}
+    \item Create a RESTFUL \gls{api} users can interact with in order to get their predictions.
+    \item Use Docker to containerize the logic of micro-services and make use of virtualization advantages.
+    \item Orchestrate these containers using Docker compose.
+    \item Build a simple \gls{lstm} network and compare its accuracy with simpler models such a \gls{mlp} or basic trigonometric interpolation.
+    \item Apply automation tools to accelerate code deployment.
+\end{itemize}
+
+\section{Document structure}
+
+This paper is structured as follows:
+
+\begin{itemize}
+    \item Section \ref{SoA:estado del arte} provides deeper insight into the state of the art of the different fields related to the development of the thesis.
+    \item Section \ref{mt:methodology} focus on the architecture development process and all the technologies that have been used.
+    \item Section \ref{res:resultados} analyzes the results obtained during development.
+    \item Section \ref{imp:impacto} reflects on the impact of \gls{ai} on the economy and therefore on society.
+    \item Section \ref{fu:future} introduces the future lines of work that could be explored after this thesis, based on the subjects that have not been developed in detail.
+\end{itemize}

@@ -1,0 +1,64 @@
+\documentclass[%
+    school=etsisi,%
+    type=pfg,%
+    degree=61IW,%
+    authorsex=m,%
+    directorsex=m,%
+]{upm-report}
+
+\addbibresource{references.bib}
+
+\author{Marcos Martínez Francisco}
+\title{AI-nance:~Stocks~Prediction}
+\director{Alberto Díaz Álvarez}
+
+\abstract{spanish}{
+  Predecir el precio de acciones con un grado de precisión ha presentado tradicionalmente un alto nivel de complejidad. Es bien conocida la gran capacidad de los ordenadores a la hora de reconocer patrones y la correlación entre la estadística y los mercados financieros, lo que los convierte en un perfecto campo de aplicación. Esta tesis pretende construir la infraestructura y los modelos de predicción necesarios para soportar un servicio de predicción RESTful utilizando algoritmos de deep learning junto a las herramientas de orquestación y contenedorización adecuadas.
+   
+  Para probar la hipótesis de que los precios de las acciones no pueden predecirse con precisión basándose únicamente en su historia pasada, se han aplicado múltiples técnicas de predicción. Se ha construido una infraestructura completa utilizando un patrón de microservicios, centrándose en la automatización y el despliegue, y se alimentó todo el historial bursatil de GOOGLE a los diferentes modelos para evaluar su respectiva precisión. Los resultados mostraron un pequeño movimiento en la misma dirección de lo hipotetizado, ninguno de los modelos ha sido capaz de mostrar altos porcentajes de precisión.
+   
+  Estos resultados sugieren que las variaciones de los precios son impulsadas por múltiples factores, algunos de los cuales son externos al activo, y por lo tanto no pueden predecirse totalmente sólo por el precio histórico. Teniendo esto en cuenta, hay que tener en cuenta todos los factores del entorno que rodean al activo cuando se intenta generar predicciones en los mercados financieros.
+
+}
+\keywords{spanish}{Mercados Financieros; Arquitectura de Microservicios; Docker; CI/CD; Redes LSTM}
+
+\abstract{english}{
+   Forecasting stock prices with a profitable degree of accuracy has traditionally presented a high level of complexity. It is well known the great capacity of computers at recognizing patterns and the correlation between statistics and financial markets, which makes them a perfect field of application. This thesis aims to build the necessary infrastructure and prediction models to support a RESTful prediction service using deep learning algorithms along with the proper orchestration and containerization tools.
+   
+   To test the hypothesis that stock prices can not be accurately predicted based just on their past history, multiple prediction techniques have been applied. An entire infrastructure has been built using a micro-services pattern, focusing on automation and deployment, and the entire trading history of GOOGLE was fed to the different models to evaluate their respective accuracy. The results were along the lines of the hypothesized outcome, as none of the models were able to show high percentages of accuracy.
+   
+   These results suggest that price variations are driven by multiple factors, some of which are external to the asset, and therefore cannot be entirely predicted just by historical price. Bearing this in mind, all the environmental factors surrounding the asset should be taken into account when trying to generate predictions in financial markets.
+}
+\keywords{english}{Financial Markets; Micro-services Architecture; Docker; CI/CD; LSTM Networks}
+
+\acknowledgements{
+   I am deeply indebted to my family, thanks to them I got to where I am today.\\
+   I could not have undertaken this journey without Ruben, who has helped me out throughout the entire thesis.\\
+   I must also thank my mentor Alberto, for his enormous patience with me.\\
+   \includegraphics[width=0.75\textwidth]{figures/judio.png}
+ }
+
+\include{frontmatter/glossary}
+
+\begin{document}
+
+\frontmatter
+
+\tableofcontents
+\listoffigures
+\listoftables
+\lstlistoflistings
+
+\mainmatter
+
+\input{chapters/introduccion}
+\input{chapters/SoA}
+\input{chapters/metodologia}
+\input{chapters/resultados}
+\input{chapters/impacto}
+\input{chapters/futuro}
+
+\printbibliography
+\printglossary
+
+\end{document}
