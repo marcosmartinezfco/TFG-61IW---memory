@@ -6,6 +6,8 @@
     directorsex=m,%
 ]{upm-report}
 
+\usepackage{wrapfig}
+
 \addbibresource{references.bib}
 
 \author{Marcos Martínez Francisco}
@@ -23,11 +25,11 @@
 \keywords{spanish}{Mercados Financieros; Arquitectura de Microservicios; Docker; CI/CD; Redes LSTM}
 
 \abstract{english}{
-   Forecasting stock prices with a profitable degree of accuracy has traditionally presented a high level of complexity. It is well known the great capacity of computers at recognizing patterns and the correlation between statistics and financial markets, which makes them a perfect field of application. This thesis aims to build the necessary infrastructure and prediction models to support a RESTful prediction service using deep learning algorithms along with the proper orchestration and containerization tools.
+   Forecasting stock prices as an investment method presents a high level of complexity. It is well known computer's great capacity at recognizing patterns and the correlation between statistics and financial markets, which makes them a perfect field to apply machine learning algorithms. This thesis aims to build the necessary infrastructure and prediction models to support a RESTful prediction service using deep learning algorithms along with the proper orchestration and containerization tools.
    
    To test the hypothesis that stock prices can not be accurately predicted based just on their past history, multiple prediction techniques have been applied. An entire infrastructure has been built using a micro-services pattern, focusing on automation and deployment, and the entire trading history of GOOGLE was fed to the different models to evaluate their respective accuracy. The results were along the lines of the hypothesized outcome, as none of the models were able to show high percentages of accuracy.
    
-   These results suggest that price variations are driven by multiple factors, some of which are external to the asset, and therefore cannot be entirely predicted just by historical price. Bearing this in mind, all the environmental factors surrounding the asset should be taken into account when trying to generate predictions in financial markets.
+   These results suggest that price variations are driven by multiple factors, some of which are external to the asset, and therefore cannot be entirely predicted just by historical price. Bearing this in mind, all of the environmental factors that surround the asset must be taken into account when trying to generate predictions in financial markets.
 }
 \keywords{english}{Financial Markets; Micro-services Architecture; Docker; CI/CD; LSTM Networks}
 
@@ -38,9 +40,9 @@
    \includegraphics[width=0.75\textwidth]{figures/judio.png}
  }
 
-\include{frontmatter/glossary}
-
 \begin{document}
+
+\include{frontmatter/glossary}
 
 \frontmatter
 

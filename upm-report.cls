@@ -11,7 +11,13 @@
 % Requisitos base
 %
 \RequirePackage{ifthen}
-
+\usepackage{morewrites}
+\usepackage{multirow}
+\usepackage{xcolor}
+\usepackage[linesnumbered,ruled,vlined]{algorithm2e}
+\usepackage{amsmath}
+\DontPrintSemicolon
+\usepackage{wrapfig}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Para los colores y fondos
 %
@@ -35,6 +41,7 @@
 \DeclareStringOption{degree}
 \DeclareStringOption{authorsex}
 \DeclareStringOption{directorsex}
+\DeclareStringOption{authorship} % true -> página declaración de autoría
 
 \ProcessKeyvalOptions*
 
@@ -218,7 +225,6 @@
 \RequirePackage{float}
 \RequirePackage{caption}
 \RequirePackage{subcaption}
-\RequirePackage{wrapfig}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Para los colores y fondos
@@ -234,16 +240,18 @@
 }{}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% Licencia de la memoria
-%
-\RequirePackage[type={CC}, modifier={by-sa}, version={4.0}]{doclicense}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Idioma
 %
 \RequirePackage{polyglossia}
 \setdefaultlanguage{english}
+\setotherlanguages{spanish,hebrew}
 \RequirePackage{csquotes}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Licencia de la memoria
+%
+\RequirePackage[type={CC}, modifier={by-sa}, version={4.0}]{doclicense}
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Referencias y bibliografía
 %
@@ -272,6 +280,7 @@
     \createplainmark{toc}{both}{\contentsname}
     \createplainmark{lof}{both}{\listfigurename}
     \createplainmark{lot}{both}{\listtablename}
+    \createplainmark{loa}{both}{\listalgorithmcfname}
     \createplainmark{bib}{both}{\bibname}
     \createplainmark{index}{both}{\indexname}
     \createplainmark{glossary}{both}{\glossaryname}
@@ -281,27 +290,6 @@
 \makeevenhead{cleared}{\hffont\thepage}{}{}
 \makeevenfoot{plain}{}{}{}
 \makeoddfoot{plain}{}{}{}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% Hypersetup
-%
-\RequirePackage[naturalnames]{hyperref}
-\makeatletter
-\hypersetup{
-    pdfauthor={\@author},
-    pdftitle={\@title},
-    %pdfsubject={},   % TODO PONER ALGUNA OPCIÓN PARA DETERMINAR EL TEMA
-    %pdfkeywords={},  % TODO QUE LAS KEYWORDS SE USEN TAMBIÉN AQUÍ
-    pdfcreator={\@author},
-    pdfproducer={},
-    breaklinks=true,
-    linktoc=all,
-    plainpages=false,
-    unicode=true,
-    colorlinks=true,
-    linkcolor={linkcolor},
-}
-\makeatother
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Fuentes
@@ -376,7 +364,25 @@
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Listados de código fuente
-%
+\renewcommand{\KwSty}[1]{\textnormal{\textcolor{blue!90!black}{\ttfamily\bfseries #1}}\unskip}
+\renewcommand{\ArgSty}[1]{\textnormal{\ttfamily #1}\unskip}
+\SetKwComment{Comment}{\color{green!50!black}\# }{}
+\renewcommand{\CommentSty}[1]{\textnormal{\ttfamily\color{green!50!black}#1}\unskip}
+\newcommand{\assign}{\leftarrow}
+\newcommand{\var}{\texttt}
+\newcommand{\FuncCall}[2]{\texttt{\bfseries #1(#2)}}
+\SetKwProg{Def}{def}{}{}
+\renewcommand{\ProgSty}[1]{\texttt{\bfseries #1}}
+\SetStartEndCondition{ }{}{}%
+\SetKwProg{Fn}{def}{\string:}{}
+\SetKwFunction{Range}{range}%%
+\SetKw{KwTo}{in}\SetKwFor{For}{for}{\string:}{}%
+\SetKwIF{If}{ElseIf}{Else}{if}{:}{elif}{else:}{}%
+\SetKwFor{While}{while}{:}{fintq}%
+\AlgoDontDisplayBlockMarkers\SetAlgoNoEnd\SetAlgoNoLine%
+
+\renewcommand{\listalgorithmcfname}{Índice de algoritmos}
+
 \RequirePackage{listings}
 \renewcommand{\lstlistingname}{Listado}
 \renewcommand*{\lstlistlistingname}{Índice de listados}
@@ -435,10 +441,42 @@
 \RequirePackage{fancyvrb}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Hypersetup
+%
+\RequirePackage[naturalnames]{hyperref}
+\makeatletter
+\hypersetup{
+    pdfauthor={\@author},
+    pdftitle={\@title},
+    %pdfsubject={},   % TODO PONER ALGUNA OPCIÓN PARA DETERMINAR EL TEMA
+    %pdfkeywords={},  % TODO QUE LAS KEYWORDS SE USEN TAMBIÉN AQUÍ
+    pdfcreator={\@author},
+    pdfproducer={},
+    breaklinks=true,
+    linktoc=all,
+    plainpages=false,
+    unicode=true,
+    colorlinks=true,
+    linkcolor={linkcolor},
+}
+\makeatother
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Glosario
 %
-\RequirePackage[acronym,noredefwarn]{glossaries}
+\RequirePackage[acronym,section]{glossaries}
+\renewcommand*\printglossaries{%
+    \chapter*{Lista de términos}
+    \printglossary
+    \printglossary[type=\acronymtype,title=Acrónimos]
+}
 \makeglossaries
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Índice
+%
+\usepackage{imakeidx}
+\makeindex
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Para tener los números de mes
@@ -466,7 +504,10 @@
 \newcommand{\acknowledgements}[1]{\gdef\@acknowledgements{#1}}%
 \newcommand{\@acknowledgements}{\@latex@warning@no@line{No \noexpand\acknowledgements given}}
 \makeatother
-
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Otros
+%
+\usepackage{wrapfig}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Portada y primeras páginas
 %
@@ -531,43 +572,41 @@
     
     \clearpage
     
-    % Declaración de autoría
-	\thispagestyle{empty}
-	\topskip0pt
-	\vspace*{\fill}
-
-	Yo, \textbf{\theauthor}, estudiante de la titulación \textbf{\degreename} de la de \textbf{\schoolname} de la \textbf{\universityname}, como \textbf{\ifthenelse{\equal{\authorsex}{m}}{autor}{autora}} \ifthenelse{\equal{\reporttypeabbr}{PhD}}{de la}{del} \reporttype~\ifthenelse{\equal{\reporttypeabbr}{PhD}}{titulada}{titulado}:\\
-	
-	\begin{center}
-		\textbf{\large \@title}
-	\end{center}
-
-	\vspace{2em}	
-	
-	\textbf{DECLARO QUE}
-
-	\vspace{2em}
-
-	Este proyecto es una obra original y que todas las fuentes utilizadas para su realización han sido debidamente citadas en el mismo. Del mismo modo, asumo frente a la Universidad cualquier responsabilidad que pudiera derivarse de la autoría o falta de originalidad del contenido de la memoria presentada de conformidad con el ordenamiento jurídico vigente.
-	
-	\vspace{2em}
-
-	\begin{center}
-		Madrid, a \today
-	\end{center}
-
-	\begin{center}
-	    \IfFileExists{firma.png}{
-	        \includegraphics[height=3cm]{firma}
-	    }{}
-	\end{center}
-
-	\begin{center}
-		Fdo.: \theauthor\\
-		\textbf{\ifthenelse{\equal{\authorsex}{m}}{Autor}{Autora}} del \reporttype
-	\end{center}
-
-	\vspace*{\fill}
+    % Declaración de autoría (sólo aparece si se activa en los parámetros de la plantilla como authorship=true)
+	\ifthenelse{\equal{\@upm@authorship}{true}}{%
+    	\thispagestyle{empty}
+    	\topskip0pt
+    	\vspace*{\fill}
+    
+    	Yo, \textbf{\theauthor}, estudiante de la titulación \textbf{\degreename} de la \textbf{\schoolname} de la \textbf{\universityname}, como \textbf{\ifthenelse{\equal{\authorsex}{m}}{autor}{autora}} \ifthenelse{\equal{\reporttypeabbr}{PhD}}{de la}{del} \reporttype~\ifthenelse{\equal{\reporttypeabbr}{PhD}}{titulada}{titulado}:\\
+    	
+    	\begin{center}
+    		\textbf{\large \@title}
+    	\end{center}
+    
+    	\vspace{2em}	
+    	
+    	\textbf{DECLARO QUE}
+    
+    	\vspace{2em}
+    
+    	Este proyecto es una obra original y que todas las fuentes utilizadas para su realización han sido debidamente citadas en el mismo. Del mismo modo, asumo frente a la Universidad cualquier responsabilidad que pudiera derivarse de la autoría o falta de originalidad del contenido de la memoria presentada de conformidad con el ordenamiento jurídico vigente.
+    	
+    	\vspace{2em}
+    
+    	\begin{center}
+    		Madrid, a \today
+    	\end{center}
+    
+        \vspace*{\fill}
+    	
+    	\begin{center}
+    		Fdo.: \theauthor\\
+    		\textbf{\ifthenelse{\equal{\authorsex}{m}}{Autor}{Autora}} del \reporttype
+    	\end{center}
+    
+    	\vspace*{\fill}
+    }{}
     
     % Resumen
 	\thispagestyle{empty}
@@ -585,7 +624,7 @@
 
     % Agradecimientos
 	\thispagestyle{empty}
-	\selectlanguage{english}
+	\selectlanguage{spanish}
     \chapter*{Agradecimientos}
     \@acknowledgements
 }
@@ -597,14 +636,6 @@
 
 % Páginas y procesos a ejecutar al final de la compilación
 \AtEndDocument{
-    % Glosario
-    % TODO Añadirlo sólo si existe alguna entrada en el glosario
-    \printglossary
-
-    % Índice
-    % TODO Añadirlo sólo si existe alguna entrada en el índice
-    %\printindex
-
     % Página de cómo citar
     %\clearpage
 	%\thispagestyle{empty}
@@ -621,6 +652,7 @@
 %    year=\the\year\\
 %}
 %\end{verbatim}
+
     % Página de cubierta trasera
     \clearpage
     \thispagestyle{empty}

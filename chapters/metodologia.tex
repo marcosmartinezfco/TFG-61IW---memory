@@ -13,9 +13,9 @@ In this subsection we will talk about the different technologies and tools that 
 
 As mentioned above, version control is a part of configuration management and is responsible for recognizing and managing the various changes of software code. Version control systems are software tools that help teams manage changes to source code over time. 
 
-For this project Git has been the clear option since it is the market leader due to its huge speed and branch and merge functionality, among others. Taken from its website "Git is a free and open source distributed version control system designed to handle everything from small to very large projects with speed and efficiency".~\cite{gitDefinition}
+For this project Git has been the clear option since it is the market leader due to its huge speed and its branch and merge functionality, among others. Taken from its website "Git is a free and open source distributed version control system designed to handle everything from small to very large projects with speed and efficiency".~\cite{gitDefinition}
 
-GitHub is essentially a remote repository hosting platform for git. It allows developers to work together on the same project from anywhere. Fig~\ref{fig:current-status-github} presents an example.
+GitHub is essentially a remote repository hosting platform for GIT. It allows developers to work together on the same project from anywhere. Fig~\ref{fig:current-status-github} presents an example.
 
 \begin{figure}[H]
     \centering
@@ -202,7 +202,7 @@ Fig~\ref{fig:architecture-layout} shows all the micro-services the architecture 
 \toprule
 \textbf{Driver} & \multicolumn{1}{c|}{\textbf{Funcitonality}}                                                                                            \\ \midrule
 Bridge          & \begin{tabular}[c]{@{}l@{}}Is best when you need multiple\\ containers to communicate on the same host.\end{tabular}                   \\ \midrule
-Host            & \begin{tabular}[c]{@{}l@{}}Remove network isolation between \\ the container and the host, using its networking directly.\end{tabular} \\ \midrule
+Host            & \begin{tabular}[c]{@{}l@{}}Removes network isolation between \\ the container and the host, using its networking directly.\end{tabular} \\ \midrule
 Overlay &
   \begin{tabular}[c]{@{}l@{}}Is best when you need containers running on \\ different hosts to communicate. It connects multiple Docker \\ daemons together, removing the need to do OS-level routing.\end{tabular} \\ \midrule
 macVLAN &
@@ -212,7 +212,7 @@ None            & It disables all networking, usually used together with a custo
 \end{tabular}
 \end{table}
 
-For this project, the bridge driver has been used since all the orchestration has taken place in the same host machine. Bridge networks provide a software networking layer which allows connected containers to communicate, while providing full isolation from containers that are not connected.
+This project uses the bridge driver since the host machine houses all the orchestration. On their own, bridge networks provide a software networking layer which allows connected containers to communicate, while providing full isolation from containers that are not connected.
 
 Docker creates a bridge network by default to which all containers are connected if not specified otherwise. These containers can reference one another based on their IP address. User-defined networks can also be created, with the advantage of more configuration capabilities and containers being able to reference one another by their name instead of an IP address. Fig~\ref{fig:tfg-net} shows the user-defined bridge network used in this project.
 
@@ -323,7 +323,7 @@ class Client:
 
 \end{lstlisting}
 
-Last but no least, once we have all the Api Gateway code implemented, we need to specify Docker how to containerize the application so that our build and push workflow in Lst~\ref{lst:build-push-docker} can automatically build and upload the Docker image to Docker Hub. Lst~\ref{lst:ApiGateway-dockerfile} shows the Dockerfile used to create the image to build the container. 
+Last but not least, once we have all the Api Gateway code implemented, we need to specify Docker how to containerize the application so that our build and push workflow in Lst~\ref{lst:build-push-docker} can automatically build and upload the Docker image to Docker Hub. Lst~\ref{lst:ApiGateway-dockerfile} shows the Dockerfile used to create the image to build the container. 
 
 
 \begin{lstlisting}[language=python,caption=Api Gateway Dockerfile,label={lst:ApiGateway-dockerfile}]
@@ -374,7 +374,7 @@ The Data Pipeline module's main function, as seen in the architecture layout in 
 
 Data from the Alpha Vantage \gls{api} can easily be fetched with the Python package \textbf{"request"}. Lst~\ref{lst:alpha-vantage} shows the python implementation to request the data located in the \textbf{alpha-vantage.py} python module.
 
-In order to be able to respond to requests, we first need to be capable of receiving them. As we mentioned above the Data Piline behaves as a server to which the \gls{api} Gateway connects. Lst~\ref{lst:server.py} shows the implementation of the \textbf{server.py} module.
+In order to be able to respond to requests, we first need to be capable of receiving them. As we mentioned above the Data Pipeline behaves as a server to which the \gls{api} Gateway connects. Lst~\ref{lst:server.py} shows the implementation of the \textbf{server.py} module.
 
 \begin{lstlisting}[language=python,caption=server.py,label={lst:server.py}]
 class Server:
@@ -443,9 +443,9 @@ ENTRYPOINT ["python3", "main.py"]
     \label{fig:serving}
 \end{figure}
 
-As introduced in section \ref{Micro-service Architecture} ,instead of building the microservice from scratch and reinvent the wheel, we can use Tensorflow server. "A very efficient, battle-tested model server that can sustain a high load, serve multiple versions of your models and watch a model repository to automatically deploy the latest versions", as Fig~\ref{fig:serving} shows~\cite{handsOnMachine}.
+As introduced in section \ref{Micro-service Architecture} instead of building the microservice from scratch and reinvent the wheel, we can use Tensorflow server. "A very efficient, battle-tested model server that can sustain a high load, serve multiple versions of your models and watch a model repository to automatically deploy the latest versions", as Fig~\ref{fig:serving} shows~\cite{handsOnMachine}.
 
-To use this functionality we first need set up some sort of file system structure to save our models and its versions. Using the function \textbf{tf.saved\_model.save(model, path)} we can easily serialize and save our model so it can be loaded by the Tensorflow server using the \textbf{keras.models.load(model\_path)} function. Models should be saved under the structure of "model name" and "version", Fig~\ref{fig:model-save}. This will allow the server to auto-deploy all our models and expose them through a http or gRPC endpoint.
+To use this functionality we first need set up some sort of file system structure to save our models and its versions. Using the function \textbf{tf.saved\_model.save(model, path)} we can easily serialize and save our model so it can be loaded by the Tensorflow server using the \textbf{keras.models.load(model\_path)} function. Models should be saved under the structure of "model name" and "version", Fig~\ref{fig:model-save}. This will allow the server to auto-deploy all our models and expose them through an http or gRPC endpoint.
 
 \begin{figure}[h]
     \centering
@@ -458,7 +458,7 @@ Tensorflow server can be easily downloaded from the Tensorflow's official reposi
 
 \subsection{Orchestration}
 
-Docker compose has been chosen for this project to orchestrate the different containers on the same host. Docker compose is a tool for defining and running multi-container Docker applications. With Compose, you use a YAML file to configure your application’s services. Then, with a single command, you build and start all the services from your configuration. Docker compose has functionalities for managing the whole life cycle of your application:~\cite{dockerCompose}
+Docker compose has been chosen for this project to orchestrate the different containers on the same host. Docker compose is a tool for defining and running multi-container Docker applications. With Compose, you use a YAML file to configure your application’s services. Then, with a single command, you build and start all the services from your configuration. Docker compose has the following functionalities for managing the whole life cycle of your application:~\cite{dockerCompose}
 
 \begin{itemize}
     \item Start, stop, and rebuild services.
@@ -524,7 +524,7 @@ It is obvious we are facing a regression problem since we are trying to predict 
 
 \subsection{Data definition}
 
-During the whole training process, only the historical data of google will be used in the training for simplicity's sake. This data will be presented as a time series, as shown in Fig~\ref{fig:training-data}, containing the weekly or daily trading (depending of sample size requirements) information of google, i.e, the open price, close price, highest trading price, lowest trading price and the trading volume in dollars.
+During the whole training process, only the historical data of GOOGLE will be used in the training for simplicity's sake. This data will be presented as a time series, as shown in Fig~\ref{fig:training-data}, containing the weekly or daily trading (depending of sample size requirements) information of GOOGLE, i.e, the open price, close price, highest trading price, lowest trading price and the trading volume in dollars.
 
 \begin{figure}[H]
     \centering
