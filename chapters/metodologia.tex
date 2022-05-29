@@ -1,7 +1,7 @@
 \chapter{Methodology}
 \label{mt:methodology}
 
-In this section, we will walk through all the organizational aspects related to the project: configuration management, CI/CD workflows, micro-service architecture structure and model definition.
+In this section, we will walk through all the organizational aspects related to the project: configuration management, \gls{ci}/\gls{cd} workflows, micro-service architecture structure and model definition.
 
 \section{Configuration Management}
 
@@ -13,9 +13,9 @@ In this subsection we will talk about the different technologies and tools that 
 
 As mentioned above, version control is a part of configuration management and is responsible for recognizing and managing the various changes of software code. Version control systems are software tools that help teams manage changes to source code over time. 
 
-For this project Git has been the clear option since it is the market leader due to its huge speed and its branch and merge functionality, among others. Taken from its website "Git is a free and open source distributed version control system designed to handle everything from small to very large projects with speed and efficiency".~\cite{gitDefinition}
+For this project Git has been the clear option since it is the market leader due to its huge speed and its branch and merge functionality, among others. Taken from its website \enquote{Git is a free and open source distributed version control system designed to handle everything from small to very large projects with speed and efficiency}.~\cite{gitDefinition}
 
-GitHub is essentially a remote repository hosting platform for GIT. It allows developers to work together on the same project from anywhere. Fig~\ref{fig:current-status-github} presents an example.
+GitHub is essentially a remote repository hosting platform for Git. It allows developers to work together on the same project from anywhere. Figure~\ref{fig:current-status-github} presents an example.
 
 \begin{figure}[H]
     \centering
@@ -28,20 +28,20 @@ GitHub is essentially a remote repository hosting platform for GIT. It allows de
 
 A Git workflow is a template for how to use git to accomplish work in a consistent and productive manner. Git is extremely flexible when it comes to managing changes, so there is no imposed or standardized process. When working with a team on a project, it is important to make sure that the entire team is familiar with how changes will be applied. 
 
-Gitflow has been chosen for this project because of its versatility and the ability to generate branches for each of the features needed for the project, Fig~\ref{fig:gitflow-example}. In our case, it will be extremely useful to be able to develop each of the modules/micro-services of the system in parallel.
+Gitflow has been chosen for this project because of its versatility and the ability to generate branches for each of the features needed for the project, Figure~\ref{fig:gitflow-example}. In our case, it will be extremely useful to be able to develop each of the modules/micro-services of the system in parallel.
 
 \begin{figure}[H]
     \centering
     \includegraphics[width=0.55\textwidth]{figures/gitflow.png}
-    \caption{Source: www.atlassian.com~\cite{gitflow}}
+    \caption{Gitflow Scheme, Source: www.atlassian.com~\cite{gitflow}}
     \label{fig:gitflow-example}
 \end{figure}
 
 \subsection{GitHub Projects}
 
-When planning a project, one of the most important tasks is the identification and organization of the necessary work to do in order to complete the project. Due to the changing nature of a degree's thesis and all its uncertainties, agile methodologies seem to be the clear choice to organize its planning and be able to adapt to any change or problem that may appear during its different stages. For this specific thesis different agile methodologies have been used to enhance its development, among which sprints~\footnote{Short, time-boxed period when a scrum team works to complete a set amount of work.~\cite{sprintsDef}} and kanban boards~\footnote{Agile project management tool designed to help visualize work, limit work-in-progress, and maximize efficiency.~\cite{kanbanDef}} stand out.
+When planning a project, one of the most important tasks is the identification and organization of the necessary work to do in order to complete the project. Due to the changing nature of a degree's thesis and all its uncertainties, agile methodologies seem to be the clear choice to organize its planning and be able to adapt to any change or problem that may appear during its different stages. For this specific thesis different agile methodologies have been used to enhance its development, among which sprints~\footnote{Short, time-boxed period when a scrum team works to complete a set amount of work.~\cite{sprintsDef}} and \gls{Kanban} boards~\footnote{Agile project management tool designed to help visualize work, limit work-in-progress, and maximize efficiency.~\cite{kanbanDef}} stand out.
 
-GitHub provides a helpful tool for creating and managing kanban boards called projects. Fig~\ref{fig:github-projects} shows a snapshot of my project backlog. Task can be either added, edited or deleted from the backlog. They can also be transferred among stages and you can even link them to pull requests or issues which is extremely convenient for workflow automation, since tasks can be automatically transferred around depending on the outcome of those issues/pull requests.
+GitHub provides a helpful tool for creating and managing \gls{Kanban} boards called projects. Figure~\ref{fig:github-projects} shows a snapshot of my project backlog. Task can be either added, edited or deleted from the backlog. They can also be transferred among stages and you can even link them to pull requests or issues which is extremely convenient for workflow automation, since tasks can be automatically transferred around depending on the outcome of those issues/pull requests.
 
 As for the sprints, every two weeks I would meet with my mentor to review the status of the project and discuss about the next steps to take. After that, all the decisions were reflected on the backlog hosted in the GitHub projects, until the end of the newly started sprint.
 
@@ -84,13 +84,13 @@ $ sudo ./svc.sh install #this will create a systemd daemon to start the runner o
 
 Self-hosted runners offer more control of hardware, \gls{os}, and software tools than GitHub-hosted runners provide. With self-hosted runners, you can choose to create a custom hardware configuration with more processing power or memory to run larger jobs, install software available on your local network, and choose an \gls{os} not offered by GitHub-hosted runners. Self-hosted runners can be physical, virtual, in a container, on-premises, or in a cloud~\cite{selfHostedRunner}.
 
-To add a self-hosted runner, is as simple as going to the actions section in the repository settings and follow the instructions, Lst~\ref{lst:self-hosted-runner} shows the steps used to configure a Linux based runner for the project. From now on, our self-hosted runner will listen for jobs from our GitHub repository and start executing them whenever a workflow is triggered.
+To add a self-hosted runner, is as simple as going to the actions section in the repository settings and follow the instructions, Listing~\ref{lst:self-hosted-runner} shows the steps used to configure a Linux based runner for the project. From now on, our self-hosted runner will listen for jobs from our GitHub repository and start executing them whenever a workflow is triggered.
 
 \subsection{Workflow Definition}
 
 Two of the most important aspects to take into consideration when defining a workflow, are the branches or events that will trigger it and the jobs and tasks to be executed. Note that these jobs do not necessarily have to be sequentially executed, in fact they run in parallel by default. Nonetheless, GitHub actions allows us to establish dependencies between jobs, so that certain ones are executed before others.
 
-Triggering events must be defined under the "on:" tag. Lst~\ref{lst:trigger-options} shows an example of a couple of interesting ones, for more information about triggering events follow the instructions in the action's documentation.
+Triggering events must be defined under the \enquote{on}: tag. Listing~\ref{lst:trigger-options} shows an example of a couple of interesting ones, for more information about triggering events follow the instructions in the action's documentation.
 
 \begin{lstlisting}[caption=Common Workflow Triggers,label={lst:trigger-options}]
 on:
@@ -104,7 +104,7 @@ on:
   workflow_dispatch: # allows the workflow to be triggered manually
 \end{lstlisting}
 
-As for the job definition, they all must be declared under the "job" tag. Jobs run in parallel by default as we explained before. To run them sequentially, you can define dependencies as Lst~\ref{lst:jobs-definition} shows. Also, the runner which will execute the job, needs to be chosen in the definition.
+As for the job definition, they all must be declared under the \enquote{job} tag. Jobs run in parallel by default as we explained before. To run them sequentially, you can define dependencies as Listing~\ref{lst:jobs-definition} shows. Also, the runner which will execute the job, needs to be chosen in the definition.
 
 \begin{lstlisting}[caption=Job Dependencies Definition,label={lst:jobs-definition}]
 jobs:
@@ -119,9 +119,9 @@ jobs:
     needs: [jobA, jobB]
 \end{lstlisting}
 
-The most powerful feature about GitHub actions is the integration with its whole ecosystem. So for instance, each job has a list of steps which are always executed sequentially and they all need to pass, in order for the job to successfully finish. These task can be either manually specified or reused from the Action's marketplace, where everyone can either upload or reuse published actions. To use any of them, is as simple as specifying the dependency "publisher/actions@version". Lst~\ref{lst:step-definition} shows an example of a reused action from the marketplace.
+The most powerful feature about GitHub actions is the integration with its whole ecosystem. So for instance, each job has a list of steps which are always executed sequentially and they all need to pass, in order for the job to successfully finish. These task can be either manually specified or reused from the Action's marketplace, where everyone can either upload or reuse published actions. To use any of them, is as simple as specifying the dependency \enquote{publisher/actions@version}. Listing~\ref{lst:step-definition} shows an example of a reused action from the marketplace.
 
-Another useful feature is the "secrets" environment, which lets you define repository level environment variables that need to be off the code, i.e, api keys, tokens or cryptography private keys.
+Another useful feature is the \enquote{secrets} environment, which lets you define repository level environment variables that need to be off the code, i.e, \gls{api} keys, tokens or cryptography private keys.
 
 \begin{lstlisting}[caption=Steps Definition,label={lst:step-definition}]
 steps:
@@ -134,7 +134,7 @@ steps:
 
 \subsection{Build \& Push Workflow}
 
-As shown in Lst~\ref{lst:build-push-docker}, "Build-push-docker-images.yml" describes the workflow used for building and pushing the different docker images used in the project into docker hub. Automating all code deployment generated during development.
+As shown in Listing~\ref{lst:build-push-docker}, \enquote{Build-push-docker-images.yml} describes the workflow used for building and pushing the different docker images used in the project into docker hub. Automating all code deployment generated during development.
 
 \begin{lstlisting}[caption=build-push-docker-images.yml,label={lst:build-push-docker}]
 name: Build an push docker images to docker hub
@@ -170,7 +170,7 @@ jobs:
 \section{Micro-service Architecture}
 \label{Micro-service Architecture}
 
-In State of the Art \ref{Micro-services Architecture} we introduced the micro-service architecture pattern and its features. This section will focus in the different technologies that have been used to implement the pattern and the general layout of the application.
+In section~\ref{Micro-services Architecture} we introduced the micro-service architecture pattern and its features. This section will focus in the different technologies that have been used to implement the pattern and the general layout of the application.
 
 \begin{figure}[h]
     \centering
@@ -179,20 +179,20 @@ In State of the Art \ref{Micro-services Architecture} we introduced the micro-se
     \label{fig:architecture-layout}
 \end{figure}
 
-Fig~\ref{fig:architecture-layout} shows all the micro-services the architecture has been decomposed in, each of which is an independent docker container as we previously have mentioned:
+Figure~\ref{fig:architecture-layout} shows all the micro-services the architecture is decomposed into, each of which is an independent docker container as we previously have mentioned:
 
 \begin{itemize}
     \item \gls{api} Gateway is the module that provides the endpoints users will use to get the predictions.
     \item Data pipeline is the module in charge of downloading the historical data of an asset which will be fed to the model in order to get the prediction for that asset.
-    \item The prediction module is in charge of receiving a time-series with historical data of company and then forecasting a prediction of the closing price. We will be using the battle tested tool Tensorflow server to implement this micro-service.
+    \item The prediction module is in charge of receiving a time-series with historical data of a company and then forecasting a prediction of the closing price. We will be using the battle tested tool Tensorflow Serve to implement this micro-service.
 \end{itemize}
 
 \subsection{Container communication}
 \label{Container communication}
 
- Given the fact that containers act as an isolated system from the host and seeing Fig~\ref{fig:architecture-layout}, a natural question arise. How do these containers communicate with one another?
+ Given the fact that containers act as an isolated system from the host and seeing Figure~\ref{fig:architecture-layout}, a natural question arise. How do these containers communicate with one another?
  
- One of the main reasons for Docker popularity is containers and services do not even need to be aware that they are deployed on Docker, or the host's \gls{os}, or whether their peers are also Docker workloads or not. You can use Docker to manage containers in a platform-agnostic way through Docker networking drivers~\cite{dockerNetworking}. These drivers allow you to specify how containers should behave and communicate, as Tab~\ref{tab:docker-drivers} shows.
+ One of the main reasons for Docker popularity is containers and services do not even need to be aware that they are deployed on Docker, or the host's \gls{os}, or whether their peers are also Docker workloads or not. You can use Docker to manage containers in a platform-agnostic way through Docker networking drivers~\cite{dockerNetworking}. These drivers allow you to specify how containers should behave and communicate, as Table~\ref{tab:docker-drivers} shows.
  
 \begin{table}[h]
 \centering
@@ -225,7 +225,7 @@ Docker creates a bridge network by default to which all containers are connected
 
 Communication will take place between two defined channels, the first one between $"API Gateway \longleftrightarrow Data Pipeline"$ and the second one between $"API Gateway \longleftrightarrow Prediction Module"$. In both scenarios, the Data Pipeline module and the Prediction module act as the server and the \gls{api} Gateway as the client requesting a service. 
 
-Regarding the Python standard library for sockets connections, for sending data we find the "sendall()" function. This function unlike "send()", continues to send data until either it all has been sent or an error occurs. None is returned on success. On the other hand, due to packet fragmentation a custom implementation of "receive()" is needed to make sure all the response data is being received, since the standard library does not support this feature. Lst~\ref{lst:receive-all} shows the custom implementation of "receiveall()", notice that all the data sent or received through the socket must be byte encoded.\\
+Regarding the Python standard library for sockets connections, for sending data we find the \lstinline[language=python]{sendall()} function. This function unlike \lstinline[language=python]{send()}, continues to send data until either it all has been sent or an error occurs. None is returned on success. On the other hand, due to packet fragmentation a custom implementation of \lstinline[language=python]{receive()} is needed to make sure all the response data is being received, since the standard library does not support this feature. Listing~\ref{lst:receive-all} shows the custom implementation of \lstinline[language=python]{receiveall()}, notice that all the data sent or received through the socket must be byte encoded.\\
 
 \begin{lstlisting}[language=python,caption=Custom Implementation receiveall(),label={lst:receive-all}]
 def receive_all(conn: socket) -> bytes:
@@ -242,11 +242,11 @@ def receive_all(conn: socket) -> bytes:
 
 \subsection{API Gateway}
 
-As shown in Fig~\ref{fig:architecture-layout}, the main function of the \gls{api} Gateway is to provide the RESTFUL endpoints users will interact with to obtain their predictions. To satisfy user requests, the Gateway will forward these petitions. First to the Data Pipeline module, which will respond with the historical data of the requested company. Second, after receiving the response It will launch a request to the Prediction module, from which the final price prediction of the requested company will be received. Finally, the \gls{api} Gateway serves the user's original request by returning a JSON file either with the prediction or an error message.
+As shown in Figure~\ref{fig:architecture-layout}, the main function of the \gls{api} Gateway is to provide the \gls{RESTful} endpoints users will interact with to obtain their predictions. To satisfy user requests, the Gateway will forward these petitions. First to the Data Pipeline module, which will respond with the historical data of the requested company. Second, after receiving the response It will launch a request to the Prediction module, from which the final price prediction of the requested company will be received. Finally, the \gls{api} Gateway serves the user's original request by returning a \gls{json} file either with the prediction or an error message.
 
-There are several Python frameworks to work with \glspl{api} but Django has been the final option due to its market popularity and wide community support, even thought for this project a simpler option like Flask would have been more than enough.
+There are several Python frameworks to work with \glspl{api} but \gls{Django} has been the final option due to its market popularity and wide community support, even thought for this project a simpler option like Flask would have been more than enough.
 
-The first step to build our \gls{api} endpoints is to create a new application, which will wrap our micro-service logic, inside our blank Django project in the \textbf{"projectName/settings.py"} module, as Lst~\ref{lst:settings.py} shows. After creating the application, we need to tell django to forward all incoming petitions to the newly created app, Lst~\ref{lst:root/urls.py}, as it will take care of all the logic.\newpage
+The first step to build our \gls{api} endpoints is to create a new application, which will wrap our micro-service logic, inside our blank Django project in the \textbf{\enquote{projectName/settings.py}} module, as Listing~\ref{lst:settings.py} shows. After creating the application, we need to tell Django to forward all incoming petitions to the newly created app, Listing~\ref{lst:root/urls.py}, as it will take care of all the logic.\newpage
 
 \begin{lstlisting}[language=python,caption=apiGateway/settings.py,label={lst:settings.py}]
 # Application definition
@@ -277,9 +277,9 @@ urlpatterns = [
 ]
 \end{lstlisting}
 
-Now all petitions are being routed to our application, but we need to specify an endpoint for users to communicate with our service. In Lst~\ref{lst:restApi/urls.py} we create the only endpoint our API will recognize, \textbf{"/prediction/<str:ticker>"}. The last part of the url, \textbf{<str:ticker>}, allows us to serialize the company ticker\footnote{An abbreviation used to uniquely identify publicly traded shares of a particular stock on a particular stock market}, so that it is passed as a parameter to the corresponding view.
+Now all petitions are being routed to our application, but we need to specify an endpoint for users to communicate with our service. In Listing~\ref{lst:restApi/urls.py} we create the only endpoint our \gls{api} will recognize, \textbf{\enquote{/prediction/<str:ticker>}}. The last part of the url, \textbf{\enquote{<str:ticker>}}, allows us to serialize the company ticker\footnote{An abbreviation used to uniquely identify publicly traded shares of a particular stock on a particular stock market.}, so that it is passed as a parameter to the corresponding view.
 
-Now that we are capable of routing petitions we need to create a view, which is a Python function or class that takes a web request and returns a web response, to manage them. Two types of views are built-in in the Django framework, function views and class based views, which need to be declared inside the \textbf{"restApi/views.py"} module. For this project the class based view has been the final option simply because each single HTTP request method can be defined by a matching name function, as Lst~\ref{lst:restApi/views.py} shows.
+Now that we are capable of routing petitions we need to create a view, which is a Python function or class that takes a web request and returns a web response, to manage them. Two types of views are built-in in the Django framework, function views and class based views, which need to be declared inside the \textbf{\enquote{restApi/views.py}} module. For this project the class based view has been the final option simply because each single \gls{http} request method can be defined by a matching name function, as Listing~\ref{lst:restApi/views.py} shows.
 
 \begin{lstlisting}[language=python,caption=restApi/views.py,label={lst:restApi/views.py}]
 class PredictionView(APIView):
@@ -300,7 +300,7 @@ class PredictionView(APIView):
         return JsonResponse(response.json())
 \end{lstlisting}
 
-In section~\ref{Container communication} we explained how containers communicated among one another and that the API Gateway always acted as a client, either to request data to the Data Pipeline module or to the Predcition module as seen in Lst~\ref{lst:restApi/views.py}. Lst~\ref{lst:restApi/client.py} shows the implementation of the client class for communicating with Data Pipeline module using sockets.
+In section~\ref{Container communication} we explained how containers communicated among one another and that the API Gateway always acted as a client, either to request data to the Data Pipeline module or to the Predcition module as seen in Listing~\ref{lst:restApi/views.py}. Listing~\ref{lst:restApi/client.py} shows the implementation of the client class for communicating with Data Pipeline module using sockets.
 
 \begin{lstlisting}[language=python,caption=restApi/client.py,label={lst:restApi/client.py}]
 class Client:
@@ -323,7 +323,7 @@ class Client:
 
 \end{lstlisting}
 
-Last but not least, once we have all the Api Gateway code implemented, we need to specify Docker how to containerize the application so that our build and push workflow in Lst~\ref{lst:build-push-docker} can automatically build and upload the Docker image to Docker Hub. Lst~\ref{lst:ApiGateway-dockerfile} shows the Dockerfile used to create the image to build the container. 
+Last but not least, once we have all the \gls{api} Gateway code implemented, we need to specify \gls{Docker} how to containerize the application so that our build and push workflow in Listing~\ref{lst:build-push-docker} can automatically build and upload the Docker image to Docker Hub. Listing~\ref{lst:ApiGateway-dockerfile} shows the Dockerfile used to create the image to build the container. 
 
 
 \begin{lstlisting}[language=python,caption=Api Gateway Dockerfile,label={lst:ApiGateway-dockerfile}]
@@ -370,11 +370,11 @@ def _dump_data(data: dict, file: str):
         json.dump(data, out, sort_keys=True, indent=4)
 \end{lstlisting}
 
-The Data Pipeline module's main function, as seen in the architecture layout in Fig~\ref{fig:architecture-layout}, is to wait for petitions, requesting the historical time-series of a given ticker of a company, from the \gls{api} Gateway module. To get the time-series, the Data pipeline module will use the Aplha Vantage APIs, which provides enterprise-grade financial market data. From traditional asset classes, e.g., stocks and ETFs, to economic signals, from foreign exchange rates to cryptocurrencies, from fundamental data to technical indicators.~\cite{alphaVantage}
+The Data Pipeline module's main function, as seen in the architecture layout in Figure~\ref{fig:architecture-layout}, is to wait for petitions, requesting the historical time-series of a given ticker of a company, from the \gls{api} Gateway module. To get the time-series, the Data pipeline module will use the Aplha Vantage \glspl{api}, which provides enterprise-grade financial market data. From traditional asset classes, e.g., stocks and \glspl{etf}, to economic signals, from foreign exchange rates to cryptocurrencies, from fundamental data to technical indicators.~\cite{alphaVantage}
 
-Data from the Alpha Vantage \gls{api} can easily be fetched with the Python package \textbf{"request"}. Lst~\ref{lst:alpha-vantage} shows the python implementation to request the data located in the \textbf{alpha-vantage.py} python module.
+Data from the Alpha Vantage \gls{api} can easily be fetched with the Python package \textbf{\enquote{request}}. Listing~\ref{lst:alpha-vantage} shows the Python implementation to request the data located in the \textbf{\enquote{alpha-vantage.py}} Python module.
 
-In order to be able to respond to requests, we first need to be capable of receiving them. As we mentioned above the Data Pipeline behaves as a server to which the \gls{api} Gateway connects. Lst~\ref{lst:server.py} shows the implementation of the \textbf{server.py} module.
+In order to be able to respond to requests, we first need to be capable of receiving them. As we mentioned above the Data Pipeline behaves as a server to which the \gls{api} Gateway connects. Listing~\ref{lst:server.py} shows the implementation of the \textbf{\enquote{server.py}} module.
 
 \begin{lstlisting}[language=python,caption=server.py,label={lst:server.py}]
 class Server:
@@ -413,7 +413,7 @@ class Server:
         conn.sendall(data.encode(Server.FORMAT))
 \end{lstlisting}
 
-As we did in the previous section we need to specify the Dockerfile to build the image. Lst~\ref{lst:dataPipeline-dockerfile} shows the Dockerfile used to create the image to build the container.
+As we did in the previous section we need to specify the Dockerfile to build the image. Listing~\ref{lst:dataPipeline-dockerfile} shows the Dockerfile used to create the image to build the container.
 
 \begin{lstlisting}[language=python,caption=Data Pipeline Dockerfile,label={lst:dataPipeline-dockerfile}]
 FROM    ubuntu
@@ -443,9 +443,9 @@ ENTRYPOINT ["python3", "main.py"]
     \label{fig:serving}
 \end{figure}
 
-As introduced in section \ref{Micro-service Architecture} instead of building the microservice from scratch and reinvent the wheel, we can use Tensorflow server. "A very efficient, battle-tested model server that can sustain a high load, serve multiple versions of your models and watch a model repository to automatically deploy the latest versions", as Fig~\ref{fig:serving} shows~\cite{handsOnMachine}.
+As introduced in section \ref{Micro-service Architecture} instead of building the micro-service from scratch and reinvent the wheel, we can use Tensorflow Serve. \enquote{A very efficient, battle-tested model server that can sustain a high load, serve multiple versions of your models and watch a model repository to automatically deploy the latest versions}, as Figure~\ref{fig:serving} shows~\cite{handsOnMachine}.
 
-To use this functionality we first need set up some sort of file system structure to save our models and its versions. Using the function \textbf{tf.saved\_model.save(model, path)} we can easily serialize and save our model so it can be loaded by the Tensorflow server using the \textbf{keras.models.load(model\_path)} function. Models should be saved under the structure of "model name" and "version", Fig~\ref{fig:model-save}. This will allow the server to auto-deploy all our models and expose them through an http or gRPC endpoint.
+To use this functionality we first need set up some sort of file system structure to save our models and its versions. Using the function \textbf{\enquote{tf.saved\_model.save(model, path)}} we can easily serialize and save our model so it can be loaded by the Tensorflow Serve using the \textbf{\enquote{keras.models.load(model\_path)}} function. Models should be saved under the structure of \enquote{model name} and \enquote{version}, Figure~\ref{fig:model-save}. This will allow the server to auto-deploy all our models and expose them through an \gls{http} or \gls{grpc} endpoint.
 
 \begin{figure}[h]
     \centering
@@ -454,11 +454,11 @@ To use this functionality we first need set up some sort of file system structur
     \label{fig:model-save}
 \end{figure}
 
-Tensorflow server can be easily downloaded from the Tensorflow's official repository. This will allow us to pull the image directly from the orchestrator, lst~\ref{lst:docker-compose}. We only need to specify the ports which will be used by the REST/gRPC endpoints and mount the folder containing all of our models into our container, so the server knows where to find them. The request made to the http endpoint by the \gls{api} Gateway can be seen in lst~\ref{lst:restApi/views.py}.
+Tensorflow Serve can be easily downloaded from the Tensorflow's official repository. This will allow us to pull the image directly from the orchestrator, Listing~\ref{lst:docker-compose}. We only need to specify the ports which will be used by the REST/gRPC endpoints and mount the folder containing all of our models into our container, so the server knows where to find them. The request made to the http endpoint by the \gls{api} Gateway can be seen in Listing~\ref{lst:restApi/views.py}.
 
 \subsection{Orchestration}
 
-Docker compose has been chosen for this project to orchestrate the different containers on the same host. Docker compose is a tool for defining and running multi-container Docker applications. With Compose, you use a YAML file to configure your application’s services. Then, with a single command, you build and start all the services from your configuration. Docker compose has the following functionalities for managing the whole life cycle of your application:~\cite{dockerCompose}
+\gls{Docker} compose has been chosen for this project to orchestrate the different containers on the same host. Docker compose is a tool for defining and running multi-container Docker applications. With Compose, you use a \gls{YAML} file to configure your application’s services. Then, with a single command, you build and start all the services from your configuration. Docker compose has the following functionalities for managing the whole life cycle of your application:~\cite{dockerCompose}
 
 \begin{itemize}
     \item Start, stop, and rebuild services.
@@ -467,7 +467,7 @@ Docker compose has been chosen for this project to orchestrate the different con
     \item Run a one-off command on a service.
 \end{itemize}
 
-Lst~\ref{lst:docker-compose} shows the docker compose file used to set up the orchestration configuration. Notice that the \gls{api} Gateway module depends on the other two modules to be initialized. 
+Listing~\ref{lst:docker-compose} shows the docker compose file used to set up the orchestration configuration. Notice that the \gls{api} Gateway module depends on the other two modules to be initialized. 
 
 \newpage
 \begin{lstlisting}[language=python,caption=docker-compose.yaml,label={lst:docker-compose}]
@@ -507,10 +507,11 @@ networks:
 \end{lstlisting}
 
 \section{Neural Network Definition}
+\label{NN definition}
 
-A key aspect of some types of \gls{nn} such as densely connected networks is that they have no memory. They process each input independently, without recording any state in between inputs. In contrast, as you are reading the present sentence, you are processing it word by word, while keeping memories of what came before.\cite{deepWithPython}
+A key aspect of some types of \gls{ann} such as densely connected networks is that they have no memory. They process each input independently, without recording any state in between inputs. In contrast, as you are reading the present sentence, you are processing it word by word, while keeping memories of what came before.\cite{deepWithPython}
 
-This lack of memory may present issues with any type of data that is time related or needs to keep a record of its past. \glspl{rnn} tackle this problem by iterating through the sequence elements and maintaining a state containing information relative to what it has seen so far. In essence, a \gls{rnn} is a type of \gls{nn} with an internal loop.
+This lack of memory may present issues with any type of data that is time related or needs to keep a record of its past. \glspl{rnn} tackle this problem by iterating through the sequence elements and maintaining a state containing information relative to what it has seen so far. In essence, a \gls{rnn} is a type of \gls{ann} with an internal loop.
 
 In this section we will walk through the development of a model capable of making predictions on stock prices using the historical time series of its price. But before trying to implement the model, we need to understand the problem, so that the whole process is easier. The following aspects need to be considered:
 
@@ -524,7 +525,7 @@ It is obvious we are facing a regression problem since we are trying to predict 
 
 \subsection{Data definition}
 
-During the whole training process, only the historical data of GOOGLE will be used in the training for simplicity's sake. This data will be presented as a time series, as shown in Fig~\ref{fig:training-data}, containing the weekly or daily trading (depending of sample size requirements) information of GOOGLE, i.e, the open price, close price, highest trading price, lowest trading price and the trading volume in dollars.
+During the whole training process, only the historical data of Google will be used in the training for simplicity's sake. This data will be presented as a time series, as shown in Figure~\ref{fig:training-data}, containing the weekly or daily trading (depending of sample size requirements) information, i.e, the open price, close price, highest trading price, lowest trading price and the trading volume in dollars.
 
 \begin{figure}[H]
     \centering
@@ -533,7 +534,7 @@ During the whole training process, only the historical data of GOOGLE will be us
     \label{fig:training-data}
 \end{figure}
 
-Now we can easily transform our JSON into a pandas data frame to easily manage information. Lst~\ref{lst:load-data} shows how to load the JSON into our data frame with the date time as our index.
+Now we can easily transform our \gls{json} into a pandas data frame to easily manage information. Listing~\ref{lst:load-data} shows how to load the \gls{json} into our data frame with the date time as our index.
 
 \begin{lstlisting}[language=python,caption=Load Data Into a Pandas Data Frame,label={lst:load-data}]
 with open('./Training data/googl.json') as f:
@@ -562,7 +563,7 @@ def simple_predictions(df):
     print(f'accuracy {success/(len(df)-4)*100}%')
 \end{lstlisting}
 
-We will build a prediction algorithm which will take into consideration the prices of the asset over the last month and its price trend, as Fig~\ref{fig:price-trend} shows, and interpolate a prediction linearly proportional to the trend. Lst~\ref{lst:base-model} shows a simple function that computes and test this approach, reaching 33.69\% accuracy in the whole data frame, Fig~\ref{fig:basic-acurracy} shows the accuracy for the last 40 weeks.
+We will build a prediction algorithm which will take into consideration the prices of the asset over the last month and its price trend, as Figure~\ref{fig:price-trend} shows, and interpolate a prediction linearly proportional to the trend. Listing~\ref{lst:base-model} shows a simple function that computes and test this approach, reaching 33.69\% accuracy in the whole data frame, Figure~\ref{fig:basic-acurracy} shows the accuracy for the last 40 weeks.
 
 \begin{figure}[H]
     \centering
@@ -580,7 +581,7 @@ We will build a prediction algorithm which will take into consideration the pric
 
 \subsection{Multilayer Perceptron Approach}
 
-Once we have a baseline model, let's find out if we can improve the prediction accuracy with a simple \gls{mlp}. Due to the small sample size of the weekly time series, daily time series data will be used for the deep learning algorithms instead. Lst~\ref{lst:perceptron} shows the assembly of the network. Fig~\ref{fig:perceptron} shows the accuracy obtained by the model in the test data set, reaching 31\%
+Once we have a baseline model, let's find out if we can improve the prediction accuracy with a simple \gls{mlp}. Due to the small sample size of the weekly time series, daily time series data will be used for the deep learning algorithms instead. Listing~\ref{lst:perceptron} shows the assembly of the network. Figure~\ref{fig:perceptron} shows the accuracy obtained by the model in the test data set, reaching 31\%
 
 \begin{lstlisting}[language=python,caption=\gls{mlp} Assembly,label={lst:perceptron}]
 inputs = keras.Input(shape=(5,))
@@ -608,9 +609,19 @@ After multiple hyper-parameter tunings~\footnote{\url{https://xkcd.com/1838/}}, 
 
 In section \ref{Artificial Intelligence} we talked about how \glspl{rnn} can keep an internal state and remember patterns inside our data. We will try now to build a simple model to see if we can improve the lack of memory seen in previous approaches.
 
-First [hablar de como tenemos que darle la informacion a la red y ese window slide y poner la funcion que tenemos].
+First we need to prepare the information we are going to feed to the model. The weekly trading history of GOOGLE contains less than 800 samples which is quite little information. To solve this problem we take the daily trading history of the company and squeeze the data into weeks, Listing~\ref{lst:time-steps}, so now we have around 800 samples with 5 time steps each, shape (786,5,5) at the time of writing.
 
-During training we have used two different callbacks. These are objects that can perform actions at various stages of training, e.g, at the start or end of an epoch or before or after a single batch. First, we have the \textbf{EarlyStopping} class which allows to stop training when a given metric shows no improvement, like training loss in this particular case. Second, we have implemented a custom callback class which allows to see graphic representation of the training and validation loss during in real time during training, lst~\ref{lst:callback}.
+\begin{lstlisting}[language=python,caption=Week Time Steps GOOGLE,label={lst:time-steps}]
+def week_batch_generator(raw, scaler):
+    raw_df = scaler.transform(raw)
+    df_x = raw_df[:-1]
+    df_y = np.array([(x[0]+x[3])/2 for x in raw_df[1:]])
+    x_batch = df_x[:-(len(df)%5)].reshape((len(df_x)//5, 5, 5)) 
+    y_batch = df_y[:-(len(df)%5)].reshape(len(df_y)//5, 5, -1)
+    return (x_batch[:-100], y_batch[:-100]), (x_batch[-100:], np.array(raw_df[1:-(len(df)%5),[0, 3]][-100:]))
+\end{lstlisting}
+
+During training we have used two different callbacks. These are objects that can perform actions at various stages of training, e.g, at the start or end of an epoch or before or after a single batch. First, we have the \textbf{\enquote{EarlyStopping}} class which allows to stop training when a given metric shows no improvement, like training loss in this particular case. Second, we have implemented a custom callback class which allows to see graphic representation of the training and validation loss during in real time during training, Listing~\ref{lst:callback}. These callbacks are added to the network configuration as shown in Listing~\ref{lst:lstm-assembly}.
 
 \begin{lstlisting}[language=python,caption=Custom Keras Callback,label={lst:callback}]
 Created with the help of Rubén Rincón Blanco
@@ -634,16 +645,37 @@ class MyCallback(keras.callbacks.Callback):
         print(f"Finished: {logs}")
 \end{lstlisting}
 
-By default, recurrent layers in Keras only return the final output. To make them return one output per time step, you must set \textbf{return\_sequences=True}.
+\begin{lstlisting}[language=python,caption=\gls{lstm} Assembly,label={lst:lstm-assembly}]
+inputs = keras.layers.Input(shape=(x_train.shape[1:]))
+x = keras.layers.LSTM(3, activation=keras.layers.LeakyReLU() , return_sequences=True)(inputs)
+x = keras.layers.Dropout(0.2)(x)
+x = keras.layers.LSTM(2, activation=keras.layers.LeakyReLU() , return_sequences=False)(x)
+x = keras.layers.Dropout(0.2)(x)
+output = keras.layers.Dense(1, activation='linear')(x)
+model_lstm = keras.Model(inputs=inputs, outputs=output, name="v1.0")
+model_lstm.compile(
+    loss=keras.losses.MeanSquaredError(),
+    optimizer=keras.optimizers.Adam(learning_rate=0.00001),
+)
+history = model_lstm.fit(
+    x_train[:-100], y_train[:-100],
+    validation_data=(x_train[-100:], y_train[-100:]), 
+    batch_size=32, epochs=100, shuffle=False,
+    verbose=0,
+    callbacks=[
+        keras.callbacks.EarlyStopping(patience=15, restore_best_weights=True),
+        MyCallback()
+    ]
+)
+\end{lstlisting}
 
-[Poner la configuracion de la red]
+\begin{figure}
+    \centering
+    \includegraphics[width=\textwidth]{figures/loss-lstm.png}
+    \caption{\gls{lstm} Training Loss}
+    \label{fig:loss-lstm}
+\end{figure}
 
-[Hablar de que hace mucho overfit]
+As in the previous section, the \gls{lstm} model presents high levels of overfitting, Figure~\ref{fig:loss-lstm} . It also presents huge sings of mode collapse\footnote{When model can only produce a single type of output or a small set of outputs regardless of the input data.} within the average price range of the trading history, as seen with the \gls{mlp} model, regardless of the hyper-parameters configuration. 
 
-[Hablar de las diferentes tecnicas que podemos utilizar y hacer regularizacion]
-[Segundo approach con regularizacion]
-
-
-
-[Acurracy]
 

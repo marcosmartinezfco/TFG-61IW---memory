@@ -240,6 +240,33 @@
 }{}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Hypersetup
+%
+\RequirePackage[naturalnames]{hyperref}
+\makeatletter
+\hypersetup{
+    pdfauthor={\@author},
+    pdftitle={\@title},
+    %pdfsubject={},   % TODO PONER ALGUNA OPCIÓN PARA DETERMINAR EL TEMA
+    %pdfkeywords={},  % TODO QUE LAS KEYWORDS SE USEN TAMBIÉN AQUÍ
+    pdfcreator={\@author},
+    pdfproducer={},
+    breaklinks=true,
+    linktoc=all,
+    plainpages=false,
+    unicode=true,
+    colorlinks=true,
+    linkcolor={linkcolor},
+}
+\makeatother
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Idioma
+%
+\RequirePackage{listings}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Idioma
 %
 \RequirePackage{polyglossia}
@@ -383,9 +410,8 @@
 
 \renewcommand{\listalgorithmcfname}{Índice de algoritmos}
 
-\RequirePackage{listings}
-\renewcommand{\lstlistingname}{Listado}
-\renewcommand*{\lstlistlistingname}{Índice de listados}
+\renewcommand{\lstlistingname}{Listing}
+\renewcommand*{\lstlistlistingname}{List of Listings}
 
 \definecolor{sbase03}{HTML}{002B36}
 \definecolor{sbase02}{HTML}{073642}
@@ -427,6 +453,7 @@
     showstringspaces=false,
     tabsize=2
 }
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Manejo de PDF
 %
@@ -439,27 +466,6 @@
 
 \RequirePackage{verbatim}
 \RequirePackage{fancyvrb}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% Hypersetup
-%
-\RequirePackage[naturalnames]{hyperref}
-\makeatletter
-\hypersetup{
-    pdfauthor={\@author},
-    pdftitle={\@title},
-    %pdfsubject={},   % TODO PONER ALGUNA OPCIÓN PARA DETERMINAR EL TEMA
-    %pdfkeywords={},  % TODO QUE LAS KEYWORDS SE USEN TAMBIÉN AQUÍ
-    pdfcreator={\@author},
-    pdfproducer={},
-    breaklinks=true,
-    linktoc=all,
-    plainpages=false,
-    unicode=true,
-    colorlinks=true,
-    linkcolor={linkcolor},
-}
-\makeatother
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Glosario

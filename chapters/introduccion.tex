@@ -1,11 +1,11 @@
 \chapter{Introduction}
 \label{ch:introduccion}
 
-\gls{ai} is one of the scientific areas that has gained the most popularity over the last decade~\cite{iagoogletrend}. While it is true that \gls{ai} is a relatively new theoretical field created in the mid-twentieth century~\footnote{The term "Artificial Intelligence" was first coined by John McCarthy in 1956~\cite{definitionIaMcCarthy}.}, it is only now that it has begun to offer real and accurate solutions beyond a purely research-focused framework, as a result of the exponential increase of the availability of colossal data sets as well as monstrous computing power. There is a huge variety of research sub-branches that underlay the field of \gls{ai}, that ranges from general applications such as \gls{ml}, \glspl{es} or \gls{nlp} algorithms, to more concrete applications such as the traditional Chinese board game, GO,~\footnote{Abstract strategy board game for two players in which the aim is to surround more territory than the opponent~\cite{goDefinition}.}.
+\gls{ai} is one of the scientific areas that has gained the most popularity over the last decade~\cite{iagoogletrend}. While it is true that \gls{ai} is a relatively new theoretical field created in the mid-twentieth century~\footnote{The term \enquote{Artificial Intelligence} was first coined by John McCarthy in 1956~\cite{definitionIaMcCarthy}.}, it is only now that it has begun to offer real and accurate solutions beyond a purely research-focused framework, as a result of the exponential increase of the availability of colossal data sets as well as monstrous computing power. There is a huge variety of research sub-branches that underlay the field of \gls{ai}, that ranges from general applications such as \gls{ml}, \glspl{es} or \gls{nlp} algorithms, to more concrete applications such as the traditional Chinese board game, GO~\footnote{Abstract strategy board game for two players in which the aim is to surround more territory than the opponent~\cite{goDefinition}.}.
 
 A more specific area of application of \gls{ai} are financial markets. These markets conform an exchange platform in which a group of sellers offer a certain number of tradable assets which can be purchased by another group of buyers. The prices of these tradable assets are determined by the market itself, i.e., a seller will receive what the market is willing to pay for an asset. This ambiguous singularity raises the first question, what influences the price of an asset? 
 
-Applying \gls{ai} techniques to financial markets is extremely interesting due to the strong correlation between statistics and the stock market. The history of the stock market in itself contains patterns that give clues for the future, only however, if those patterns are properly interpreted. Many theories and analytical tools such as the "Dow Theory" or the "Fundamental" and "Technical" analysis provide evidence on this regard~\cite{stockMarketPatterns}. In addition, computers are extremely efficient at recognizing and processing patterns embedded in the data fed to them, which makes financial markets an extremely interesting field to work in.
+ Applying \gls{ai} techniques to financial markets is extremely interesting due to the strong correlation between statistics and the stock market. The history of the stock market in itself contains patterns that give clues for the future, only however, if those patterns are properly interpreted. Many theories and analytical tools such as the \enquote{Dow Theory} or the \enquote{Fundamental} and \enquote{Technical} analysis provide evidence on this regard~\cite{stockMarketPatterns}. In addition, computers are extremely efficient at recognizing and processing patterns embedded in the data fed to them, which makes financial markets an extremely interesting field to work in.
 
 Despite all of the above, the price of an asset cannot be predicted with complete accuracy using statistical analysis. There are several causalities that can affect the price of an asset since the market is strongly affected by emotions, for example, or other factors that are more slippery for statistics. Restrictive economic policies, corporate scandals, military conflicts and even \textit{tweets} from relevant personalities, are just a few other examples of punctual factors that can influence the development of the market.
 
@@ -24,9 +24,10 @@ Set up initial micro-services-based infrastructure capable of serving a NASDAQ s
 \newpage
 \subsection{Specific aims}
 \begin{itemize}
-    \item Create a RESTFUL \gls{api} users can interact with in order to get their predictions.
-    \item Use Docker to containerize the logic of micro-services and make use of virtualization advantages.
-    \item Orchestrate these containers using Docker compose.
+    \item Create a \gls{RESTful} \gls{api} users can interact with in order to get their predictions.
+    \item Use Google trading history as training and test data for the models.
+    \item Use \gls{Docker} to containerize the logic of micro-services and make use of virtualization advantages.
+    \item Orchestrate these containers using \gls{Docker} compose.
     \item Build a simple \gls{lstm} network and compare its accuracy with simpler models such a \gls{mlp} or basic trigonometric interpolation.
     \item Apply automation tools to accelerate code deployment.
 \end{itemize}

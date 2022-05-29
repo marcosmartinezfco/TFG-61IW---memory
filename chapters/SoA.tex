@@ -3,7 +3,7 @@
 
 \section{Artificial Intelligence}
 \label{Artificial Intelligence}
-John McCarthy defines \gls{ai} as "The science and engineering of making intelligent machines, especially intelligent computer programs. It is related to the similar task of using computers to understand human intelligence, but AI does not have to confine itself to methods that are biologically observable"~\cite{aidefinitionjhon}. Other approaches such as the one used by Stuart Russel and Peter Norving~\cite{aiModern} organize all the definitions of \gls{ai} into four different categories depending on either "fidelity to human performance" or "ideal performance, called rationality", as shown in Table ~\ref{tab:groups-ai-def}.
+John McCarthy defines \gls{ai} as \enquote{The science and engineering of making intelligent machines, especially intelligent computer programs. It is related to the similar task of using computers to understand human intelligence, but AI does not have to confine itself to methods that are biologically observable}~\cite{aidefinitionjhon}. Other approaches such as the one used by Stuart Russel and Peter Norving~\cite{aiModern} organize all the definitions of \gls{ai} into four different categories depending on either \enquote{fidelity to human performance} or \enquote{ideal performance, called rationality}, as shown in Table~\ref{tab:groups-ai-def}.
 
 \begin{table}[]
 \caption{\label{tab:groups-ai-def}Definitions of AI organized according to Stuart Russel and Peter Norving}
@@ -11,7 +11,7 @@ John McCarthy defines \gls{ai} as "The science and engineering of making intelli
 \begin{tabular}{|c|c|}
 \hline
 \begin{tabular}[c]{@{}c@{}}\textbf{Thinking Humanly}\\ \\ The cognitive modeling approach\end{tabular} &
-  \begin{tabular}[c]{@{}c@{}}\textbf{Thinking Rationality}\\ \\ The "laws of thought" approach\end{tabular} \\ \hline
+  \begin{tabular}[c]{@{}c@{}}\textbf{Thinking Rationality}\\ \\ The \enquote{laws of thought} approach\end{tabular} \\ \hline
 \begin{tabular}[c]{@{}c@{}}\textbf{Acting Humanly}\\ \\ The Turing test approach\end{tabular} &
   \begin{tabular}[c]{@{}c@{}}\textbf{Acting Rationality}\\ \\ The rational agent approach\end{tabular} \\ \hline
 \end{tabular}
@@ -31,7 +31,7 @@ The foundation and evolution of \gls{ai} is based on several fields of human kno
 \end{itemize}
 
 \notebox{
-    \textbf{"Artificial Intelligence, A Modern Approach"}
+    \textbf{\enquote{Artificial Intelligence, A Modern Approach}}
     
     Written by Stuart Russel and Peter Norving, provides useful information about several introductory topics such as: extended definition, foundations of the field, background history and many more.
     I strongly recommend this reading for those seeking a deep insight into \gls{ai}.
@@ -62,11 +62,11 @@ It is important to state the difference between the fields of \gls{ai} and \gls{
 
 \gls{dl} is a subfield of \gls{ml}, which is itself a subfield of \gls{ai}, as shown in Figure~\ref{fig:difference-ml-dl}. The main difference among each other is in the way algorithms learn. \gls{dl} algorithms automate most of the feature extraction from the data, whereas \gls{ml} relies more heavily on the experience of the person in charge of the feature engineering process.
 
-The first \gls{nn} models were inspired by neurons and the brain's architecture, since nature has inspired many inventions throughout the history of humankind. This first model architecture was introduced by the neurophysiologist Warren McCulloch and the mathematician Walter Pitts~\cite{nnModelDefinition}.\newline
+The first \gls{ann} models were inspired by neurons and the brain's architecture, since nature has inspired many inventions throughout the history of humankind. This first model architecture was introduced by the neurophysiologist Warren McCulloch and the mathematician Walter Pitts~\cite{nnModelDefinition}.\newline
 
 \subsection{Recurrent Neural Networks}
 
-A \gls{rnn} looks very much like a feedforward \gls{nn}, except it also has connections pointing backward, fig~\ref{fig:memory-cell}. Since the output of a recurrent neuron at time step t is a function of all the inputs from previous time steps, you could say it has a form of memory\cite{handsOnMachine}. This feature is extremely helpful when working with time related data such as stock prices.
+A \gls{rnn} looks very much like a feedforward \gls{ann}, except it also has connections pointing backward, Figure~\ref{fig:memory-cell}. Since the output of a recurrent neuron at time step t is a function of all the inputs from previous time steps, you could say it has a form of memory\cite{handsOnMachine}. This feature is extremely helpful when working with time related data such as stock prices.
 
 \begin{figure}[H]
     \centering
@@ -80,7 +80,7 @@ Although there are other approaches to deal with temporal data such as \glspl{cn
 
 \section{Trading}
 
-A trade could be defined as "the transfer of goods from one person or entity to another, often in exchange for money"~\cite{tradeDefinition}. This leads us to the natural concept of trading as an activity from which profits are expected when systematically applied. This behavior has been repeated throughout human history, as some studies show evidence of the exchange of obsidian and flint during the Stone Age~\cite{oxfordArcheology,obsidianTrade}. This phenomena can be seen as a starting point for modern economy.
+A trade could be defined as \enquote{the transfer of goods from one person or entity to another, often in exchange for money}~\cite{tradeDefinition}. This leads us to the natural concept of trading as an activity from which profits are expected when systematically applied. This behavior has been repeated throughout human history, as some studies show evidence of the exchange of obsidian and flint during the Stone Age~\cite{oxfordArcheology,obsidianTrade}. This phenomena can be seen as a starting point for modern economy.
 
 Nonetheless, before further stepping into the concept of trading a clarification between the terms investing and trading is needed.
 
@@ -136,11 +136,11 @@ In this thesis we will talk about some different points of view of the container
 \newpage
 \subsection{Virtual Machine Vs Container}
 
-\glspl{vm} and containers build on the same technologies and concepts. The main difference is that a \gls{vm} runs an entire \gls{os} instance on top of the "host" machine, whereas containers are intended for the deployment of single applications or services~\cite{containersStateOfArt}, as shown in Fig~\ref{fig:vm-container}
+\glspl{vm} and containers build on the same technologies and concepts. The main difference is that a \gls{vm} runs an entire \gls{os} instance on top of the \enquote{host} machine, whereas containers are intended for the deployment of single applications or services~\cite{containersStateOfArt}, as shown in Fig~\ref{fig:vm-container}
 
 \begin{figure}[H]
     \centering
-    \caption{\label{fig:vm-container} Source: www.netapp.com~\cite{vmVsContainer}}
+    \caption{\label{fig:vm-container} Virtual Machine vs Container, Source: www.netapp.com~\cite{vmVsContainer}}
     \includegraphics[width=0.65\textwidth]{figures/vm & container.png}
 \end{figure}
 
@@ -148,18 +148,18 @@ In this thesis we will talk about some different points of view of the container
 
 In the container life cycle, orchestration supports automation and adaptation at run time. There are many challenges in this regard: design new processes and tools for performance monitoring, design resource and energy efficient auto scaling and scheduling algorithms and solutions for high availability. We will focus on auto scaling.
 
-Among the auto scaling solutions, the most promising ones mix vertical and horizontal scaling and/or migration. Usually the auto scaling algorithms were designed for locally-distributed adaptation, but solutions that consider the geo-distributed case, suitable for IoT applications, have been
+Among the auto scaling solutions, the most promising ones mix vertical and horizontal scaling and/or migration. Usually the auto scaling algorithms were designed for locally-distributed adaptation, but solutions that consider the geo-distributed case, suitable for \gls{iot} applications, have been
 proposed as well. In high availability, the most promising approach is to make the detection of faulty nodes more sophisticated, e.g., based on abnormal behavior rather than only on network level or application level probes.~\cite{containersStateOfArt}
 
 \subsection{Applications}
 
 Containers offer an easy way to deploy Big data analytics applications based on the map-reduce or stream processing paradigms. Moreover, solutions are emerging to support the execution of containers on \gls{gpu} and \gls{fpga}, and to speedup specific analytic tasks.
 
-Since containers are portable and have a small performance footprint, they are suitable to deploy applications on heterogeneous, resource and power limited computational units. Deploying containers on edge or fog computing nodes, or deploying containers on IoT boards like Rasperry
+Since containers are portable and have a small performance footprint, they are suitable to deploy applications on heterogeneous, resource and power limited computational units. Deploying containers on edge or fog computing nodes, or deploying containers on \gls{iot} boards like Rasperry
 PI, is extremely advantageous, although it rises challenges in migration, service and resource provisioning and security.~\cite{containersStateOfArt}
 
 \notebox{
-    \textbf{"The SoTA in container technologies: Application, orchestration and security"}
+    \textbf{\enquote{The SoTA in container technologies: Application, orchestration and security}}
     
     E. Casalicchio and S. Iannucci, provide a deep insight into different topics of containerization literature review. I strongly recommend reading their paper for those seeking a better understanding of the matter.
 }
@@ -167,7 +167,7 @@ PI, is extremely advantageous, although it rises challenges in migration, servic
 \section{Micro-services Architecture}
 \label{Micro-services Architecture}
 
-The only abstraction traditional programming languages such as C, Python or Java provide in terms of distribution and reduction of the complexity of programs is the breakdown of code into modules/packages. All of them produce single executable artifacts, also called monolith applications. Monolith applications are software programs whose modules can not be executed independently as Fig~\ref{fig:mono-app} shows. This feature generates several issues, among which:
+The only abstraction traditional programming languages such as C, Python or Java provide in terms of distribution and reduction of the complexity of programs is the breakdown of code into modules/packages. All of them produce single executable artifacts, also called monolith applications. Monolith applications are software programs whose modules can not be executed independently as Figure~\ref{fig:mono-app} shows. This feature generates several issues, among which:
 
 \begin{itemize}
     \item Applications are difficult to maintain due to their larger complexity.
@@ -178,12 +178,12 @@ The only abstraction traditional programming languages such as C, Python or Java
 
 \begin{figure}[H]
     \centering
-    \caption{\label{fig:mono-app} Source: www.n-ix.com~\cite{monoVsMicro}}
+    \caption{\label{fig:mono-app}Monolithic Architecture, Source: www.n-ix.com~\cite{monoVsMicro}}
     \includegraphics[width=0.5\textwidth]{figures/mono.jpg}
 \end{figure}
 
 \newpage
-The micro-services architecture emerged as solution for these problems. It is in essence just a pattern that allows to decompose an application into smaller cohesive logical pieces called micro-services, mitigating most of the problems previously proposed Fig~\ref{fig:micro} . This smaller pieces communicate among each other through light messaging. Fig~\ref{fig:mono-vs-micro}
+The micro-services architecture emerged as solution for these problems. It is in essence just a pattern that allows to decompose an application into smaller cohesive logical pieces called micro-services, mitigating most of the problems previously proposed Figure~\ref{fig:micro} . This smaller pieces communicate among each other through light messaging. Figure~\ref{fig:mono-vs-micro}
 
 \begin{figure}[H]
     \centering
@@ -198,22 +198,13 @@ The micro-services architecture emerged as solution for these problems. It is in
         \caption{Monolith vs Micro-services}
         \label{fig:mono-vs-micro}
     \end{subfigure}
-    \caption{\label{fig:mono-micro}www.n-ix.com~\cite{monoVsMicro}}
+    \caption{\label{fig:mono-micro}Monolith vs Micro-services, Source: www.n-ix.com~\cite{monoVsMicro}}
 \end{figure}
 
 \subsection{Today}
 
-"Micro-services now are a new trend in software architecture, which emphasises the design and development of highly maintainable and scalable software. Micro-services manage growing complexity by functionally decomposing large systems into a set of independent services. By making services completely independent in development and deployment, microservices emphasise loose coupling and high cohesion by taking modularity to the next level. This approach delivers all sorts of benefits in terms of maintainability, scalability, and so on.[...].The micro-service architecture still shows distinctive characteristics that blend into something unique and different from \gls{soa} itself.[..]. The micro-service architecture gained popularity relatively recently and can be considered to be in its infancy since there is still a lack of consensus on what micro-services actually are."~\cite{microservicesStateOfArt} Hence, micro-services offer a new modularity in software architecture that had not been practiced before and thus it has created a paradigm shift in this field of computation.
+According to~\cite{microservicesStateOfArt}, \enquote{Micro-services now are a new trend in software architecture, which emphasises the design and development of highly maintainable and scalable software. Micro-services manage growing complexity by functionally decomposing large systems into a set of independent services. By making services completely independent in development and deployment, micro-services emphasise loose coupling and high cohesion by taking modularity to the next level. This approach delivers all sorts of benefits in terms of maintainability, scalability, and so on.The micro-service architecture still shows distinctive characteristics that blend into something unique and different from \gls{soa} itself. The micro-service architecture gained popularity relatively recently and can be considered to be in its infancy since there is still a lack of consensus on what micro-services actually are}. Hence, micro-services offer a new modularity in software architecture that had not been practiced before and thus it has created a paradigm shift in this field of computation.
 
 \subsection{Tomorrow}
 
-"The greatest strength of micro-services comes from pervasive distribution: even the internal components of software are autonomous services, leading to loosely coupled systems and the other benefits previously discussed. However, from this same aspect (distribution) also comes its greatest weakness: programming distributed systems is inherently harder than monoliths. We now have to think about new issues. Some examples are how can we manage changes to a service that may have side effects on other services that it communicates with? How can we prevent attacks that exploit network communications?.[...] There are many pitfalls that we need to keep in mind when programming with
-micro services:"~\cite{microservicesStateOfArt} a) Interfaces; b) Behavioural specifications and choreographies; c) Greater surface attack area; d) Network complexity; e) Trust.
-
-\begin{itemize}
-    \item Interfaces.
-    \item Behavioural Specifications and Choreographies.
-    \item Greater Surface Attack Area.
-    \item Network Complexity.
-    \item Trust.
-\end{itemize}
+According to~\cite{microservicesStateOfArt}, \enquote{The greatest strength of micro-services comes from pervasive distribution: even the internal components of software are autonomous services, leading to loosely coupled systems and the other benefits previously discussed. However, from this same aspect (distribution) also comes its greatest weakness: programming distributed systems is inherently harder than monoliths. We now have to think about new issues. Some examples are how can we manage changes to a service that may have side effects on other services that it communicates with? How can we prevent attacks that exploit network communications?. There are many pitfalls that we need to keep in mind when programming with micro services: a) Interfaces; b) Behavioural specifications and choreographies; c) Greater surface attack area; d) Network complexity; e) Trust.}
