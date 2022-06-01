@@ -271,7 +271,7 @@
 %
 \RequirePackage{polyglossia}
 \setdefaultlanguage{english}
-\setotherlanguages{spanish,hebrew}
+\setotherlanguages{spanish}
 \RequirePackage{csquotes}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -471,11 +471,6 @@
 % Glosario
 %
 \RequirePackage[acronym,section]{glossaries}
-\renewcommand*\printglossaries{%
-    \chapter*{Lista de términos}
-    \printglossary
-    \printglossary[type=\acronymtype,title=Acrónimos]
-}
 \makeglossaries
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
