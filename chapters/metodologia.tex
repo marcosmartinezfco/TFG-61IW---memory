@@ -225,7 +225,7 @@ Docker creates a bridge network by default to which all containers are connected
 
 Communication will take place between two defined channels, the first one between $"API Gateway \longleftrightarrow Data Pipeline"$ and the second one between $"API Gateway \longleftrightarrow Prediction Module"$. In both scenarios, the Data Pipeline module and the Prediction module act as the server and the \gls{api} Gateway as the client requesting a service. 
 
-Regarding the Python standard library for sockets connections, for sending data we find the \lstinline[language=python]{sendall()} function. This function unlike \lstinline[language=python]{send()}, continues to send data until either it all has been sent or an error occurs. None is returned on success. On the other hand, due to packet fragmentation a custom implementation of \lstinline[language=python]{receive()} is needed to make sure all the response data is being received, since the standard library does not support this feature. Listing~\ref{lst:receive-all} shows the custom implementation of \lstinline[language=python]{receiveall()}, notice that all the data sent or received through the socket must be byte encoded.\\
+Regarding the Python standard library for socket connections, sending data can be achieved with the \lstinline[language=python]{sendall()} function. This function unlike \lstinline[language=python]{send()}, continues to send data until either it all has been sent or an error occurs. None is returned on success. On the other hand, due to packet fragmentation a custom implementation of \lstinline[language=python]{receive()} is needed to make sure all the response data is being received, since the standard library does not support this feature. Listing~\ref{lst:receive-all} shows the custom implementation of \lstinline[language=python]{receiveall()}, notice that all the data sent or received through the socket must be byte encoded.\\
 
 \begin{lstlisting}[language=python,caption=Custom Implementation receiveall(),label={lst:receive-all}]
 def receive_all(conn: socket) -> bytes:
@@ -509,7 +509,7 @@ networks:
 \section{Neural Network Definition}
 \label{NN definition}
 
-A key aspect of some types of \gls{ann} such as densely connected networks is that they have no memory. They process each input independently, without recording any state in between inputs. In contrast, as you are reading the present sentence, you are processing it word by word, while keeping memories of what came before.\cite{deepWithPython}
+A key aspect of some types of \gls{ann} such as densely connected networks is that they have no memory. They process each input independently, without recording any state in between inputs. In contrast, as you are reading the present sentence, you are processing it word by word, while keeping memories of what came before\cite{deepWithPython}.
 
 This lack of memory may present issues with any type of data that is time related or needs to keep a record of its past. \glspl{rnn} tackle this problem by iterating through the sequence elements and maintaining a state containing information relative to what it has seen so far. In essence, a \gls{rnn} is a type of \gls{ann} with an internal loop.
 

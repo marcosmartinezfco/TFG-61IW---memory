@@ -1,11 +1,17 @@
 \NeedsTeXFormat{LaTeX2e}
 \ProvidesClass{upm-report}
 
+%\PassOptionsToPackage{nottoc,notlot,notlof}{tocbibind}
+
 \LoadClass[12pt, a4paper, oneside, extrafontsizes]{memoir}
 
 % Nos aseguramos de que usamos xetex como motor de compilación
 \RequirePackage{ifxetex}
+
+
 \RequireXeTeX
+
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Requisitos base
@@ -24,6 +30,7 @@
 \RequirePackage{graphicx}
 \RequirePackage{xcolor}
 \RequirePackage{eso-pic}
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Constantes
@@ -666,7 +673,7 @@
         }
     }
     \vspace*{\fill}
-    \begin{center}\includegraphics[width=6cm]{\schoollogo}\end{center}
+    \begin{center}\includegraphics[width=6cm]{upm-report/logos/logo_etsisi_orgininal.png}\end{center}
 }
 
 \makeatother
